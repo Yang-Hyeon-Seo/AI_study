@@ -1,0 +1,52 @@
+dense layer
+모든 네트워크는 다르게 연결될 수 있음
+몇몇은 적은 연결성을 가짐
+-> 더 큰 네트워크를 능가할 수 있도록 더 나은 확장성
+모두 서로 연결됨 => dense layer
+
+기계 학습이 더 잠재력있을 수 있다
+더 구조화된 것보다
+
+
+
+옷과 이미지를 인식할 수 있는 신경망
+머신러닝 : feature, lable
+
+
+Fashion MNIST
+28 x 28 픽셀의 흑백 이미지
+=784픽셀
+7만 이미지를 가짐
+6만 -> 훈련
+1만 -> 테스트
+
+784단위의 1차원 배열로 변환
+2D-Flattene-> 벡터 : Flattening
+tf.keras.layers.Flatten (input_shape = (28, 28, 1))
+
+Dense Layer (128유닛)
+tf.keras.layer.Dense(128, activation = tf.nn.relu)
+*relu : 수학함수, 네트워크가 더 복잡한 문제를 해결할 
+수 있도록 하는 고밀도 계층에 대한 수학적 확장
+The Rectified Linear Unit (ReLU)
+0이하일 때는 0을 반환하고, 
+그 이상일 때는 y=ax+b의 모양의 그래프를 그리는 함수
+네트워크가 nonlinear한 문제를 해결할 능력을 준다
+우리가 해결하고자하는 대부분의 문제는 nonlinear
+=> ReLU를 추가하면 문제 해결에 도움이 된다
+추가설명 : 
+https://www.kaggle.com/dansbecker/rectified-linear-units-relu-in-deep-learning
+
+
+Output (10유닛)
+-> 10종류의 의류를 구분하기 때문
+특정 유형의 의류이미지가 나타날 확률 지정
+=input이 10종류 이내에 든다는 확신
+각 확률의 합 = 1
+tf.keras.layer.Dense(10, activation = tf.nn.softmax)
+
+Flattening : 2D 이미지를 1D 벡터로 변환하는 과정
+ReLU : 모델이 비선형 문제를 풀 수 있도록 하는 함수
+Softmax : 가능한 각 출력 클래스에 대한 확률을 제공하는 함수
+Classification : 두 개 이상의 출력 범주를 구별하는데 
+	사용하는 기계 학습모델
